@@ -27,7 +27,7 @@ public class Mainframe extends JFrame {
 
         JPanel formPanel = new JPanel();
         formPanel.setLayout(new GridLayout(4, 1, 5, 5));
-
+        formPanel.setOpaque(false);
         formPanel.add(lbFirstName);
         formPanel.add(tfFirstName);
         formPanel.add(lbLastName);
@@ -46,6 +46,9 @@ public class Mainframe extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
 
+                String firstName = tfFirstName.getText();
+                String lastName = tfLastName.getText();
+                lbWelcome.setText("Hello " + firstName + " " + lastName);
             }
 
         });
@@ -66,13 +69,14 @@ public class Mainframe extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 2, 5, 5));
+        buttonPanel.setOpaque(false);
         buttonPanel.add(btnOK);
         buttonPanel.add(btnClear);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(new Color(128, 128, 255));
-
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         mainPanel.add(formPanel, BorderLayout.NORTH);
         mainPanel.add(lbWelcome, BorderLayout.CENTER);
 
