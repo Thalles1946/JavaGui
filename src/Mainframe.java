@@ -50,6 +50,25 @@ public class Mainframe extends JFrame {
 
         });
 
+        JButton btnClear = new JButton("Clear");
+        btnClear.setFont(maiFont);
+        btnClear.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                tfFirstName.setText("");
+                tfLastName.setText("");
+                lbWelcome.setText("");
+            }
+
+        });
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(1, 2, 5, 5));
+        buttonPanel.add(btnOK);
+        buttonPanel.add(btnClear);
+
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(new Color(128, 128, 255));
@@ -57,10 +76,19 @@ public class Mainframe extends JFrame {
         mainPanel.add(formPanel, BorderLayout.NORTH);
         mainPanel.add(lbWelcome, BorderLayout.CENTER);
 
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+        add(mainPanel);
+
         setTitle("Welcome");
         setSize(500, 600);
         setMinimumSize(new Dimension(300, 400));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Mainframe myFrame = new Mainframe();
+        myFrame.initialize();
     }
 }
